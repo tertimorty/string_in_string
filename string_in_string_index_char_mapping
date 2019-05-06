@@ -1,0 +1,34 @@
+def compare_two():
+	print(Fore.CYAN + 'starting application' + Style.RESET_ALL)
+"""Taking 2 strings as input and printing out what is maximum list of indexes found from 
+string A characters in string B indexes, also prints out the maximum ammount string A using string B indexes in order   """
+	stringA = 'ADSDAGHAWERGBV'
+	StringB = 'DADSASDGFDSSAAFDDASFDGFSHAWDGRTYURYUMNGSDRT'
+
+	i = 0
+	index = 0
+	maxindex = []
+	maxname = []
+	g = 0
+	str1 = ''
+	while g < len(stringA):
+		for each in stringA[g:]:
+			if each in StringB[i:]:		
+				index = StringB[i:].index(each)
+				maxindex.append(index+i)
+				#print(f'index for {each} in string {StringB} is {index+i} and i is {i}')
+				i += index + 1
+			else:
+				print(f'maksimum {maxindex} with strA = {stringA[g:]}')
+				for each in maxindex:
+					maxname.append(StringB[each])
+				str1 = ''.join(maxname)
+				print(str1)
+				i = 0
+				index = 0
+				maxindex = []
+				maxname = []
+				g +=1
+				break
+
+compare_two()
